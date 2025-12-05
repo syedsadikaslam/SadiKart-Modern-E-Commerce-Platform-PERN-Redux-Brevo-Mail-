@@ -13,14 +13,19 @@ import orderRouter from "./router/orderRoutes.js";
 
 const app = express();
 
-// CORS
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  process.env.DASHBOARD_URL,
+].filter(Boolean); // removes undefined values
+
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 
 
 app.use(cookieParser());
