@@ -54,8 +54,9 @@ const App = () => {
 
   if (isCheckingAuth && !authUser || !products) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <Loader className="size-10 animate-spin" />
+      <div className="flex items-center justify-center h-screen bg-white">
+        <img src="../public/logo.png" alt="logo"
+          className="w-40 animate-[pulse_1.5s_ease-in-out_infinite] opacity-90" />
       </div>
     );
   }
